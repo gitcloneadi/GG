@@ -1,6 +1,5 @@
 class Solution:
     def addTwoLists(self, head1, head2):
-        # Reverse both lists to process from least significant digit
         def reverse(head):
             prev = None
             curr = head
@@ -11,11 +10,9 @@ class Solution:
                 curr = next_node
             return prev
         
-        # Reverse both input lists
         head1 = reverse(head1)
         head2 = reverse(head2)
         
-        # Add digit by digit with carry
         dummy = Node(0)
         curr = dummy
         carry = 0
@@ -36,7 +33,6 @@ class Solution:
             curr.next = Node(digit)
             curr = curr.next
         
-        # Reverse the result back to correct order
         result = reverse(dummy.next)
         
         # Remove leading zeros (keep at least one node)
